@@ -1,0 +1,18 @@
+[Unit]
+Description=LEDbox NeoPixel Controller
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/pi/LEDBox
+EnvironmentFile=-/home/pi/LEDBox/.env
+ExecStart=/usr/bin/python3 -u /home/pi/LEDBox/updatecolors.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

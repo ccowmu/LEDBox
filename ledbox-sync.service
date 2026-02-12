@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync LEDBox repo from GitHub
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=pi
+ExecStart=/home/pi/LEDBox/ledbox-sync.sh
