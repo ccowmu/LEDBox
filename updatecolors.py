@@ -382,7 +382,7 @@ def get_status():
             continue
         print("GET: " + str(r.text))
         STATUS = json.loads(r.text)
-        time.sleep(5)
+        time.sleep(1)
 
 # Main program logic follows:
 if __name__ == '__main__':
