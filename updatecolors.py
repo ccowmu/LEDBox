@@ -15,6 +15,7 @@ import random
 import threading
 
 API_KEY = os.getenv("YAKKO_API_KEY", "")
+SERVER_URL = os.getenv("YAKKO_URL", "http://yakko.cs.wmich.edu:8878")
 
 
 # LED strip configuration:
@@ -91,7 +92,7 @@ def get_status():
    global STATUS
    while 1:
         try:
-            r = requests.get("http://yakko.cs.wmich.edu:8878", headers={"Authorization": "Bearer " + API_KEY})
+            r = requests.get(SERVER_URL, headers={"Authorization": "Bearer " + API_KEY})
         except:
             print("Failed connection.")
             time.sleep(2)

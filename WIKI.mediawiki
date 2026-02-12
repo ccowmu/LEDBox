@@ -14,19 +14,32 @@
 # The LEDBox Pi polls the server every 5 seconds for the current state
 # The Pi drives the NeoPixel strip with the requested color or animation
 
+== Chat Commands ==
+
+Control the LEDs from Matrix chat using the <code>$led</code> command:
+
+<pre>
+$led #ff0000              Set color to red (default mode: color)
+$led #00ff22 chase        Set color to green with chase animation
+$led #0000ff rainbow      Rainbow cycle (color value ignored for rainbow)
+$led #ffffff random       Random mode — picks random animations and colors
+</pre>
+
+The hex color values are halved by the chatbot before being sent to the server to keep brightness at a reasonable level.
+
 == Animation Modes ==
 
 {| class="wikitable"
 |-
-! Mode !! Command !! Behavior
+! Mode !! Behavior
 |-
-| '''Color''' || <code>$led red</code> / <code>$rgb 255 0 0</code> || Wipes the solid color across the strip, then fades to black
+| '''color''' || Wipes the solid color across the strip, then fades to black
 |-
-| '''Chase''' || <code>$led chase</code> || Theater-style chasing lights in the current color
+| '''chase''' || Theater-style chasing lights in the current color
 |-
-| '''Rainbow''' || <code>$led rainbow</code> || Full rainbow cycle across all 300 pixels
+| '''rainbow''' || Full rainbow cycle across all 300 pixels
 |-
-| '''Random''' || <code>$led random</code> || Randomly picks between rainbow, chase, and color with random colors
+| '''random''' || Randomly picks between rainbow, chase, and color with random colors
 |}
 
 == Hardware ==

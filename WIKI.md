@@ -20,14 +20,27 @@ LEDBox is the NeoPixel LED lighting system for the CCaWMU office. It drives a 30
 
 ---
 
+## Chat Commands
+
+Control the LEDs from Matrix chat using the `$led` command:
+
+```
+$led #ff0000              Set color to red (default mode: color)
+$led #00ff22 chase        Set color to green with chase animation
+$led #0000ff rainbow      Rainbow cycle (color value ignored for rainbow)
+$led #ffffff random       Random mode — picks random animations and colors
+```
+
+The hex color values are halved by the chatbot before being sent to the server to keep brightness at a reasonable level.
+
 ## Animation Modes
 
-| Mode | Command | Behavior |
-|---|---|---|
-| **Color** | `$led red` / `$rgb 255 0 0` | Wipes the solid color across the strip, then fades to black |
-| **Chase** | `$led chase` | Theater-style chasing lights in the current color |
-| **Rainbow** | `$led rainbow` | Full rainbow cycle across all 300 pixels |
-| **Random** | `$led random` | Randomly picks between rainbow, chase, and color with random colors |
+| Mode | Behavior |
+|---|---|
+| **color** | Wipes the solid color across the strip, then fades to black |
+| **chase** | Theater-style chasing lights in the current color |
+| **rainbow** | Full rainbow cycle across all 300 pixels |
+| **random** | Randomly picks between rainbow, chase, and color with random colors |
 
 ---
 
