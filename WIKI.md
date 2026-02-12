@@ -7,7 +7,7 @@ LEDBox is the NeoPixel LED lighting system for the CCaWMU office. It drives a 30
 ## How It Works
 
 ```
-┌──────────────┐   $led red    ┌──────────────────┐   poll 5s   ┌─────────────┐       ┌──────────────┐
+┌──────────────┐   $led red    ┌──────────────────┐   poll 1s   ┌─────────────┐       ┌──────────────┐
 │  Matrix Chat │ ────────────▶ │  Server (yakko)  │ ◀───────── │  LEDBox Pi  │ ────▶ │  300 NeoPixel │
 │  $led / $rgb │               │  :8878           │ ─────────▶ │  (LEDbox)   │       │  LED Strip   │
 └──────────────┘               └──────────────────┘             └─────────────┘       └──────────────┘
@@ -15,7 +15,7 @@ LEDBox is the NeoPixel LED lighting system for the CCaWMU office. It drives a 30
 
 1. A user sends a command in Matrix chat (e.g. `$led red`, `$led rainbow`, `$led chase`)
 2. The chatbot POSTs the color/mode to the server at `yakko.cs.wmich.edu:8878`
-3. The LEDBox Pi polls the server every 5 seconds for the current state
+3. The LEDBox Pi polls the server every 1 second for the current state
 4. The Pi drives the NeoPixel strip with the requested color or animation
 
 ---
@@ -173,7 +173,7 @@ curl -H "Authorization: Bearer $YAKKO_API_KEY" http://yakko.cs.wmich.edu:8878/
 ## Architecture Notes
 
 - The controller runs as **root** because the `rpi_ws281x` library requires root access for PWM/DMA hardware control
-- The background thread polls the server every **5 seconds** for state changes
+- The background thread polls the server every **1 second** for state changes
 - Animations are blocking — the current animation runs to completion before checking for new state, so there can be a delay between sending a command and seeing the change
 - The API key is stored in `/home/pi/LEDBox/.env` (not in the repo)
 
@@ -217,5 +217,10 @@ git -C /home/pi/LEDBox fetch origin    # Can it reach GitHub?
 
 ## See Also
 
-- [Door Bot](https://github.com/ccowmu/doorbot) — the office door lock system, controlled by the same server
-- [Office-IoT](https://github.com/ccowmu/Office-IoT) — the central server that both Doorbot and LEDBox poll
+### Door Bot (Office Lock)
+- **Wiki:** [Door Bot WIKI](https://github.com/ccowmu/doorbot/blob/main/WIKI.md)
+- **GitHub:** [ccowmu/doorbot](https://github.com/ccowmu/doorbot)
+
+### Office-IoT (Central Server)
+- **Wiki:** [Office-IoT WIKI](https://github.com/ccowmu/Office-IoT/blob/main/WIKI.md)
+- **GitHub:** [ccowmu/Office-IoT](https://github.com/ccowmu/Office-IoT)
