@@ -218,9 +218,9 @@ git -C /home/pi/LEDBox fetch origin    # Can it reach GitHub?
 ## See Also
 
 ### Door Bot (Office Lock)
-- **Wiki:** [Door Bot WIKI](https://github.com/ccowmu/doorbot/blob/main/WIKI.md)
-- **GitHub:** [ccowmu/doorbot](https://github.com/ccowmu/doorbot)
+- **Wiki:** [https://cclub.cs.wmich.edu/wiki/Doorbot](https://cclub.cs.wmich.edu/wiki/Doorbot)
+- **GitHub:** [https://github.com/ccowmu/doorbot](https://github.com/ccowmu/doorbot)
 
 ### Office-IoT (Central Server)
-- **Wiki:** [Office-IoT WIKI](https://github.com/ccowmu/Office-IoT/blob/main/WIKI.md)
-- **GitHub:** [ccowmu/Office-IoT](https://github.com/ccowmu/Office-IoT)
+- **Wiki:** [https://cclub.cs.wmich.edu/wiki/Office-IoT](https://cclub.cs.wmich.edu/wiki/Office-IoT)
+- **GitHub:** [https://github.com/ccowmu/Office-IoT](https://github.com/ccowmu/Office-IoT)
